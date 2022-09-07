@@ -1,9 +1,14 @@
 
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.timezone import now
  
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
@@ -11,7 +16,7 @@ class Profile(models.Model):
     bio = models.TextField(blank=True, null=True)
     
     def __str__(self):
-        return self.user
+        return self.bio
  
 class BlogPost(models.Model):
     title=models.CharField(max_length=255)
@@ -21,7 +26,7 @@ class BlogPost(models.Model):
     dateTime=models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.author
+        return self.title
    
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -32,5 +37,6 @@ class Comment(models.Model):
     dateTime=models.DateTimeField(default=now)
 
     def __str__(self):
-        return self.user
+        return self.comments
     
+ 

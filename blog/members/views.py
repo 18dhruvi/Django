@@ -23,7 +23,7 @@ def Register(request):
         user.first_name = first_name
         user.last_name = last_name
         user.save()
-        return render(request, '')  
+        return render(request, 'blogs.html')  
     return render(request, "register.html")
 
 def blogs(request):
