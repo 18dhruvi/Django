@@ -1,0 +1,36 @@
+<form action="profile.html" method="post">
+<div class="container profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                {% if user.profile.image %}
+                <img src="{{user.profile.image.url}}" alt="" width="310px" height="270px">
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-tab">
+                <div class="tab-pane">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Username:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Full Name:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email:</label>
+                        </div>
+                    </div>
+                </div>
+                <a href="/edit_profile/" class="btn btn-secondary">Edit Profile</a>
+            </div>
+        </div>
+</div>
+</div>
+</form>
